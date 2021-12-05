@@ -19,7 +19,7 @@ function Thumbnail(props: IProps) {
         {images.map((image, index) => (
           <img
             key={index}
-            src={require('../assets/images/'.concat(image)).default}
+            src={require('../../assets/images/'.concat(image)).default}
             alt="Product"
             height={imgHeight * 0.3}
             width={imgWidth * 0.3}

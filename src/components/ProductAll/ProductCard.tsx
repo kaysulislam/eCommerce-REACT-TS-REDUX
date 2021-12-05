@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import {
   Typography,
   Divider,
@@ -16,19 +18,21 @@ interface IProps {
   product: ProductDocument;
 }
 
-export default function ProductSingle(props: IProps) {
+export default function ProductCard(props: IProps) {
   const { title, description, images, price, rating } = props.product;
 
   return (
     <Box component="div" m={1}>
       <Card sx={{ width: 350, height: 450, position: 'relative' }}>
-        <CardMedia
-          style={{ height: '200px', width: '200' }}
-          component="img"
-          height="140px"
-          image={require(`../assets/images/${images[0]}`).default}
-          alt={title}
-        />
+        <Link to={`/products/${images[0]}`}>
+          <CardMedia
+            style={{ height: '200px', width: '200' }}
+            component="img"
+            height="140px"
+            image={require(`../assets/images/${images[0]}`).default}
+            alt={title}
+          />
+        </Link>
         <CardContent style={{ textAlign: 'left' }}>
           <Typography gutterBottom variant="h5" component="div">
             {title}

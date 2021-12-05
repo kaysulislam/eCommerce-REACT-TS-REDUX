@@ -10,7 +10,7 @@ function MainImage(props: IProps) {
   return (
     <div>
       <img
-        src={require('../assets/images/'.concat(src)).default}
+        src={require('../../assets/images/'.concat(src)).default}
         alt="Product"
         height={imgHeight * 0.7}
         width={imgWidth * 0.7}

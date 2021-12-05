@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { Divider, Grid, Typography, Button, Box } from '@mui/material';
 
 import { ProductDocument } from './ProductSingle';
@@ -26,13 +26,21 @@ function Detail(props: IProps) {
         <Box mt={2}>
           <Typography variant="h5">Price: $ {price}</Typography>
         </Box>
-        <Button
-          variant="contained"
-          color="primary"
-          style={{ marginTop: '50px' }}
-        >
-          Purchase
-        </Button>
+        <Box style={{ paddingTop: '20px' }}>
+          <Link
+            to={'/order'}
+            style={{ textDecoration: 'none', padding: '0 10px 0 0' }}
+          >
+            <Button variant="contained" color="primary">
+              BUY
+            </Button>
+          </Link>
+          <Link to={'/products'} style={{ textDecoration: 'none' }}>
+            <Button variant="contained" color="primary">
+              Continue Shopping !
+            </Button>
+          </Link>
+        </Box>
       </Grid>
     </div>
   );

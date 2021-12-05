@@ -1,6 +1,6 @@
 import { Grid, Divider } from '@mui/material';
 
-import ProductSingle from '../ProductAll/ProductSingle';
+import ProductCard from './ProductCard';
 import data from '../../data';
 
 export default function ProductAll() {
@@ -15,8 +15,10 @@ export default function ProductAll() {
         justifyContent="center"
         alignItems="center"
       >
-        {products.map(product => (
-          <ProductSingle product={product} />
+        {products.map((product, index) => (
+          <div key={index}>
+            <ProductCard product={product} />
+          </div>
         ))}
       </Grid>
     </div>
