@@ -5,6 +5,8 @@ import AppBar from './components/AppBar/AppBar';
 import Order from './components/Order/Order';
 import ProductAll from './components/ProductAll/ProductAll';
 import ProductSingle from './components/ProductSingle/ProductSingle';
+import LogIn from './components/LogIn/LogIn';
+import Register from './components/Register/Register';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/products" element={<ProductAll />} />
           <Route path="/products/:id" element={<ProductSingle />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </Router>
     </div>
