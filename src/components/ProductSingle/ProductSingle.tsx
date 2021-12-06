@@ -26,7 +26,19 @@ function ProductSingle() {
 
   if (product) {
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <Grid
+        container
+        xs={12}
+        sm={12}
+        alignItems="center"
+        direction="column"
+        justifyContent="space-between"
+        style={{ padding: '10px' }}
+        sx={{
+          flexGrow: 1,
+        }}
+      >
+        <div style={{ height: 30 }} />
         <Grid
           container
           spacing={1}
@@ -39,18 +51,19 @@ function ProductSingle() {
               onSelect={setSelectedImage}
             />
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={7}>
             <MainImage
               src={product.images[selectedImage]}
               imgHeight={product.imgHeight}
               imgWidth={product.imgWidth}
             />
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={3}>
             <Detail product={product} />
           </Grid>
         </Grid>
-      </Box>
+        <div style={{ height: 30 }} />
+      </Grid>
     );
   } else {
     return <h1>Error ! product not found</h1>;

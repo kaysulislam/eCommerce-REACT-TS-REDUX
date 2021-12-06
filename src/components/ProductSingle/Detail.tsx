@@ -17,7 +17,9 @@ function Detail(props: IProps) {
         direction="column"
         style={{ height: '100%', textAlign: 'left' }}
       >
-        <Typography variant="subtitle1">{category}</Typography>
+        <Typography variant="subtitle1" style={{ fontStyle: 'italic' }}>
+          {category}
+        </Typography>
         <Divider />
         <Typography variant="h4">{title}</Typography>
         <Box mt={2}>
@@ -31,12 +33,18 @@ function Detail(props: IProps) {
             to={'/order'}
             style={{ textDecoration: 'none', padding: '0 10px 0 0' }}
           >
-            <Button variant="contained" color="primary">
+            <Button
+              variant="contained"
+              style={{ backgroundColor: '#df851b', color: '#52443b' }}
+            >
               BUY
             </Button>
           </Link>
           <Link to={'/products'} style={{ textDecoration: 'none' }}>
-            <Button variant="contained" color="primary">
+            <Button
+              variant="contained"
+              style={{ backgroundColor: '#df851b', color: '#52443b' }}
+            >
               Continue Shopping !
             </Button>
           </Link>

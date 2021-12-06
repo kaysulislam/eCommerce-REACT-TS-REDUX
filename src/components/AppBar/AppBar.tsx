@@ -4,7 +4,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
@@ -12,10 +11,12 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Link from '@mui/material/Link';
+import { Button } from '@mui/material';
+import LoginIcon from '@mui/icons-material/Login';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -99,8 +100,46 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Sign In</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Register</MenuItem>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: 200,
+        }}
+      >
+        <Box mt={0.3}>
+          <MenuItem
+            onClick={handleMenuClose}
+            style={{ backgroundColor: '#df851b', color: '#52443b' }}
+          >
+            <IconButton size="large" aria-label="log in" color="inherit">
+              <LoginIcon />
+            </IconButton>
+            <Link href="/login" style={{ textDecoration: 'none' }}>
+              <Button variant="text" style={{ color: '#52443b' }}>
+                Log in
+              </Button>
+            </Link>
+          </MenuItem>
+        </Box>
+
+        <Box mt={0.3}>
+          <MenuItem
+            onClick={handleMenuClose}
+            style={{ backgroundColor: '#df851b', color: '#52443b' }}
+          >
+            <IconButton size="large" aria-label="log in" color="inherit">
+              <HowToRegIcon />
+            </IconButton>
+            <Link href="/register" style={{ textDecoration: 'none' }}>
+              <Button variant="text" style={{ color: '#52443b' }}>
+                Register
+              </Button>
+            </Link>
+          </MenuItem>
+        </Box>
+      </div>
     </Menu>
   );
 
@@ -121,44 +160,46 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: 200,
+        }}
+      >
+        <Box mt={0.3}>
+          <MenuItem style={{ backgroundColor: '#df851b', color: '#52443b' }}>
+            <IconButton size="large" aria-label="log in" color="inherit">
+              <LoginIcon />
+            </IconButton>
+            <Link href="/login" style={{ textDecoration: 'none' }}>
+              <Button variant="text" style={{ color: '#52443b' }}>
+                Log in
+              </Button>
+            </Link>
+          </MenuItem>
+        </Box>
+
+        <Box mt={0.3}>
+          <MenuItem style={{ backgroundColor: '#df851b', color: '#52443b' }}>
+            <IconButton size="large" aria-label="log in" color="inherit">
+              <HowToRegIcon />
+            </IconButton>
+            <Link href="/register" style={{ textDecoration: 'none' }}>
+              <Button variant="text" style={{ color: '#52443b' }}>
+                Register
+              </Button>
+            </Link>
+          </MenuItem>
+        </Box>
+      </div>
     </Menu>
   );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: 'rgb(10,25,41)' }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -167,19 +208,23 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ color: '#df851b' }} />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
+          <Link href="/products">
+            {' '}
+            <Box
+              component="img"
+              sx={{
+                height: 64,
+              }}
+              alt="logo."
+              src={require('../../assets/logo/logo.png').default}
+            />
+          </Link>
+
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon sx={{ color: '#df851b' }} />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
@@ -190,11 +235,11 @@ export default function PrimarySearchAppBar() {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
               size="large"
-              aria-label="show 4 new mails"
+              aria-label="show cart items"
               color="inherit"
             >
-              <Badge badgeContent={1} color="error">
-                <ShoppingCartIcon />
+              <Badge badgeContent={0} color="error">
+                <ShoppingCartIcon sx={{ color: '#df851b' }} />
               </Badge>
             </IconButton>
             <IconButton
@@ -206,7 +251,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <AccountCircle sx={{ color: '#df851b' }} />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -218,7 +263,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <MoreIcon sx={{ color: '#df851b' }} />
             </IconButton>
           </Box>
         </Toolbar>

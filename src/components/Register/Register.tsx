@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import { Grid, Button, TextField, InputAdornment } from '@mui/material';
 import { AccountCircle, LockRounded } from '@material-ui/icons';
 import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 export default function Register() {
   return (
@@ -9,6 +11,7 @@ export default function Register() {
       <Grid container style={{ minHeight: '100vh' }}>
         <Grid
           container
+          item
           xs={12}
           sm={12}
           alignItems="center"
@@ -27,7 +30,7 @@ export default function Register() {
           >
             <Grid item justifyContent="center">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png"
+                src={require('../../assets/logo/logo.png').default}
                 alt="logo"
                 width={200}
               />
@@ -68,7 +71,7 @@ export default function Register() {
               }}
             />
             <TextField
-              label="Multiline"
+              label="Address"
               margin="normal"
               multiline
               rows={2}
@@ -107,11 +110,21 @@ export default function Register() {
               }}
             />
             <div style={{ height: 20 }} />
-            <Button variant="contained" color="primary">
+
+            <Button
+              variant="contained"
+              startIcon={<HowToRegIcon />}
+              style={{ backgroundColor: '#df851b', color: '#52443b' }}
+            >
               Register
             </Button>
+
             <div style={{ height: 20 }} />
-            <Button>Already have an account? Log in Here !</Button>
+            <Link to={'/login'} style={{ textDecoration: 'none' }}>
+              <Button color="primary" variant="text">
+                Already have an account? Log in Here !
+              </Button>
+            </Link>
           </div>
           <div />
         </Grid>
