@@ -19,25 +19,6 @@ interface IProps {
   product: ProductDocument;
 }
 
-const styles = {
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  card: {
-    position: 'relative',
-    width: 350,
-    height: 450,
-  },
-  overlay: {
-    position: 'absolute',
-    top: '20px',
-    left: '20px',
-    color: 'black',
-    backgroundColor: 'white',
-  },
-};
-
 export default function ProductCard(props: IProps) {
   const { title, description, images, price, rating } = props.product;
 
