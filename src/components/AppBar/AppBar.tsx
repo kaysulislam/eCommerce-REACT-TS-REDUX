@@ -233,15 +233,17 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              aria-label="show cart items"
-              color="inherit"
-            >
-              <Badge badgeContent={0} color="error">
-                <ShoppingCartIcon sx={{ color: '#df851b' }} />
-              </Badge>
-            </IconButton>
+            <Link href="/order">
+              <IconButton
+                size="large"
+                aria-label="show cart items"
+                color="inherit"
+              >
+                <Badge badgeContent={0} color="error">
+                  <ShoppingCartIcon sx={{ color: '#df851b' }} />
+                </Badge>
+              </IconButton>
+            </Link>
             <IconButton
               size="large"
               edge="end"
